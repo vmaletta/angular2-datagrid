@@ -1,9 +1,11 @@
 export class User {
-    active: boolean;
+    status: boolean;
 
-    constructor(public userId: number,
-                public name: string,
-                public username: string) {
-        this.active = true;
+    constructor(public firstName: string,
+                public lastName: string,
+                public username: string,
+                public role: string,
+                public email: string) {
+        this.status = true;
     }
 }

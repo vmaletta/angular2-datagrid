@@ -6,39 +6,39 @@ import { Observable } from 'rxjs/Rx';
 @Component({
     selector: 'pagination',
     template: `
-    <div>
-        <ul class="pagination pull-right">
+    <div class="text-center">
+    	<ul class="pagination">
             <li [class.disabled]="currentPageNumber === 1 || !maxPageIndex">
                 <a href (click)="setCurrentPage(1, $event)" aria-label="Previous">
-                    <span aria-hidden="true">«</span>
+                    <span  class="glyphicon glyphicon-fast-backward"aria-hidden="true"></span>
                 </a>
             </li>
             <li [class.disabled]="currentPageNumber === 1 || !maxPageIndex">
-                <a href aria-label="Previous" 
+                <a href aria-label="Previous"
                     (click)="setCurrentPage(currentPageNumber - 1, $event)">
-                    <span aria-hidden="true">‹</span>
+                    <span aria-hidden="true" class="glyphicon glyphicon-step-backward"></span>
                 </a>
             </li>
-            <li *ngFor="let index of range(pageStartNumber, pageEndNumber)" 
+            <li *ngFor="let index of range(pageStartNumber, pageEndNumber)"
                         [class.active]="currentPageNumber === index">
                 <a href (click)="setCurrentPage(index, $event)">
                     <span aria-hidden="true">{{ index }}</span>
                 </a>
             </li>
-            <li [class.disabled]="currentPageNumber === maxPageIndex 
+            <li [class.disabled]="currentPageNumber === maxPageIndex
                                   || !maxPageIndex">
                 <a href (click)="setCurrentPage(currentPageNumber + 1, $event)" aria-label="Last">
-                    <span aria-hidden="true">›</span>
+                    <span aria-hidden="true" class="glyphicon glyphicon-step-forward"></span>
                 </a>
             </li>
-            <li [class.disabled]="currentPageNumber === maxPageIndex 
+            <li [class.disabled]="currentPageNumber === maxPageIndex
                                   || !maxPageIndex">
                 <a href (click)="setCurrentPage(maxPageIndex, $event)" aria-label="Last">
-                    <span aria-hidden="true">»</span>
+                    <span aria-hidden="true" class="glyphicon glyphicon-fast-forward" ></span>
                 </a>
             </li>
         </ul>
-    </div>    
+    </div>
     `
 })
 export class PaginationComponent implements OnInit, OnChanges {
@@ -57,7 +57,7 @@ export class PaginationComponent implements OnInit, OnChanges {
             if (this.currentPageNumber > change.currentValue) {
                 // throws ExpressionChangedAfterItHasBeenCheckedException
                 // if there's no setTimeout.
-                // no need to add setTimeout if ngOnChanges 
+                // no need to add setTimeout if ngOnChanges
                 // is fired after changes made on root component.
                 setTimeout(() => this.setCurrentPage(1), 1);
             }

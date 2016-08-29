@@ -12,37 +12,39 @@ import './../utils/array.extensions';
 export class InMemoryComponent implements OnInit {
     table: NgDataGridModel<User>;
     recentlyRemoveUsers: any[];
-    private userId: number = 0;
 
     constructor() {
         this.table = new NgDataGridModel<User>([]);
-        for (this.userId = 0; this.userId < 150; this.userId++) {
-            this.table.items.push(new User(this.userId, `user ${this.userId}`,
-                                        `username${this.userId}`));
-        }
+        this.table.pageSize = 10;
+        var json = require('./../datagrid/users.json');
+        json.data.forEach(item=> {
+          this.table.items.push(new User(item.firstName, item.lastName, item.username,
+                                        item.role, item.email));
+
+        });
     }
 
     ngOnInit() { }
 
     addRecordPlugin() {
-        let userId = this.userId++;
-        this.table.items.push(new User(userId, `user ${userId}`, `username${userId}`));
+        //let userId = this.userId++;
+        //this.table.items.push(new User(userId, `user ${userId}`, `username${userId}`));
     }
 
     removeRecordPlugin(item) {
-        this.recentlyRemoveUsers = this.table.items.remove(item);
+        //this.recentlyRemoveUsers = this.table.items.remove(item);
     }
 
     removeAllEvenIdPlugin() {
-        this.recentlyRemoveUsers = this.table.items
-            .remove(item => item.userId % 2 === 0);
+        //this.recentlyRemoveUsers = this.table.items
+        //    .remove(item => item.userId % 2 === 0);
     }
 
     changedActiveStatus(e: any) {
-        if (confirm('Do you want to include all filtered items?')) {
-            this.table.itemsFiltered.forEach(user => user.active = e.target.checked);
-        } else {
-            this.table.itemsOnCurrentPage.forEach(user => user.active = e.target.checked);
-        }
+      //  if (confirm('Do you want to include all filtered items?')) {
+    //        this.table.itemsFiltered.forEach(user => user.active = e.target.checked);
+    //    } else {
+    //        this.table.itemsOnCurrentPage.forEach(user => user.active = e.target.checked);
+    //    }
     }
 }

@@ -1,25 +1,39 @@
 <section>
+  <header>
     <h1 class="om-title">
-        Ontology Browser</h1>
+        Site Administration</h1>
+        <nav>
+        			<ol class="nav nav-tabs">
+        				<li role="presentation" class="active">
+        					<a href="#variables">
+        						Users
+        					</a>
+        				</li>
+        			</ol>
+        </nav>
+    </header>
+    <br><br>
     <div class="row">
         <div class="col-xs-12">
             <div class="form-inline">
 
                 <div class="form-group">
-                  <label class="" for="PageSize">Status: </label>
-                  <select class="select2-choice ui-select-match select2-default" name="pageSize"
-                      [(ngModel)]="table.pageSize">
-                      <option [ngValue]="5">5</option>
-                      <option [ngValue]="10">10</option>
-                      <option [ngValue]="15">15</option>
-                  </select>
-
-                  <label class="" for="PageSize">Role: </label>
+                  <label class="">Status: </label>
+                  &nbsp;
                   <select class="select2-chosen" name="pageSize"
                       [(ngModel)]="table.pageSize">
-                      <option [ngValue]="5">5</option>
-                      <option [ngValue]="10">10</option>
-                      <option [ngValue]="15">15</option>
+                      <option [ngValue]="0">Active</option>
+                      <option [ngValue]="1">Inactive</option>
+                  </select>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label class="">Role: </label>
+                  &nbsp;
+                  <select class="select2-chosen" name="pageSize"
+                      [(ngModel)]="table.pageSize">
+                      <option [ngValue]="All">All</option>
+                      <option [ngValue]="Breeder">Breeder</option>
+                      <option [ngValue]="Technician">Technician</option>
+                      <option [ngValue]="Admin">Admin</option>
                   </select>
                 </div>
                 <div class="form-group pull-right">
@@ -31,16 +45,18 @@
             </div>
     </div>
     </div>
-
+    <br><br>
     <div class="row">
         <div class="col-xs-12">
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th><span>Name</span></th>
-                        <th>Property</th>
-                        <th>Method</th>
-                        <th>Scale</th>
+                        <th>Username</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,14 +64,12 @@
                         <td colspan="4" class="text-center">No records found.</td>
                     </tr>
                     <tr *ngFor="let user of table.itemsOnCurrentPage">
-                        <td>
-                            sarasa
-                        </td>
                         <td>{{user.username}}</td>
-                        <td>{{user.name}}</td>
-                        <td>
-                            Delete
-                        </td>
+                        <td>{{user.firstName}}</td>
+                        <td>{{user.lastName}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.role}}</td>
+                        <td>{{user.status}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -66,5 +80,5 @@
                 (pageNumberChanged)="table.currentPageIndex = $event">
     </pagination>
 
-  
+
 </section>
