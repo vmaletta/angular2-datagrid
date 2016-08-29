@@ -49,7 +49,7 @@ export class NgDataGridModel<T> {
     }
 
     get itemsFiltered(): T[] {
-        return this.items.filter(item => Object.same(this.searchValue, item));
+      return this.items.filter(item => Object.same(this.searchValue, item));
     }
 
     get itemsOnCurrentPage(): T[] {

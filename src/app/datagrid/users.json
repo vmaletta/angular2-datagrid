@@ -5,7 +5,7 @@
             "firstName": "name1",
             "lastName": "lastName1",
             "email": "name1@gmail.com",
-            "status": true,
+            "status": "false",
             "role": "Breeder"
         },
         {
@@ -13,7 +13,7 @@
             "firstName": "name2",
             "lastName": "lastName2",
             "email": "name2@gmail.com",
-            "status": true,
+            "status": "true",
             "role": "Breeder"
         },
         {
@@ -21,7 +21,7 @@
             "firstName": "name3",
             "lastName": "lastName3",
             "email": "name3@gmail.com",
-            "status": true,
+            "status": "true",
             "role": "Technician"
         },
         {
@@ -29,7 +29,7 @@
             "firstName": "name4",
             "lastName": "lastName4",
             "email": "name4@gmail.com",
-            "status": true,
+            "status": "true",
             "role": "Admin"
         },
         {
@@ -37,15 +37,15 @@
             "firstName": "name1",
             "lastName": "lastName1",
             "email": "name1@gmail.com",
-            "status": true,
-            "role": "Breeder"
+            "status": "false",
+            "role": "Admin"
         },
         {
             "username": "user2",
             "firstName": "name2",
             "lastName": "lastName2",
             "email": "name2@gmail.com",
-            "status": true,
+            "status": "true",
             "role": "Breeder"
         },
         {
@@ -53,7 +53,7 @@
             "firstName": "name3",
             "lastName": "lastName3",
             "email": "name3@gmail.com",
-            "status": true,
+            "status": "false",
             "role": "Technician"
         },
         {
@@ -61,7 +61,7 @@
             "firstName": "name4",
             "lastName": "lastName4",
             "email": "name4@gmail.com",
-            "status": true,
+            "status": "true",
             "role": "Admin"
         },
         {
@@ -69,7 +69,7 @@
             "firstName": "name1",
             "lastName": "lastName1",
             "email": "name1@gmail.com",
-            "status": true,
+            "status": "true",
             "role": "Breeder"
         },
         {
@@ -77,7 +77,7 @@
             "firstName": "name2",
             "lastName": "lastName2",
             "email": "name2@gmail.com",
-            "status": true,
+            "status": "true",
             "role": "Breeder"
         },
         {
@@ -85,7 +85,7 @@
             "firstName": "name3",
             "lastName": "lastName3",
             "email": "name3@gmail.com",
-            "status": true,
+            "status": "true",
             "role": "Technician"
         },
         {
@@ -93,7 +93,7 @@
             "firstName": "name4",
             "lastName": "lastName4",
             "email": "name4@gmail.com",
-            "status": true,
+            "status": "true",
             "role": "Admin"
         }
     ]

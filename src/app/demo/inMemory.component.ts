@@ -19,7 +19,7 @@ export class InMemoryComponent implements OnInit {
         var json = require('./../datagrid/users.json');
         json.data.forEach(item=> {
           this.table.items.push(new User(item.firstName, item.lastName, item.username,
-                                        item.role, item.email));
+                                        item.role, item.email, item.status));
 
         });
     }
