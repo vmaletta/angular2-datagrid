@@ -1,29 +1,32 @@
 <section>
-    <h1>Table Demo</h1>
+    <h1 class="om-title">
+        Ontology Browser</h1>
     <div class="row">
         <div class="col-xs-12">
             <div class="form-inline">
+
                 <div class="form-group">
-                    <label class="" for="Search">Search</label>
-                    <input type="text" name="Search" class="form-control" title="Search" 
-                        [(ngModel)]="table.searchValue.username"/>
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-success"
-                        (click)="addRecordPlugin()">Add record</button>
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-warning" 
-                        (click)="removeAllEvenIdPlugin()">Remove all even Id</button>
+                  <label class="" for="PageSize">Status: </label>
+                  <select class="select2-choice ui-select-match select2-default" name="pageSize"
+                      [(ngModel)]="table.pageSize">
+                      <option [ngValue]="5">5</option>
+                      <option [ngValue]="10">10</option>
+                      <option [ngValue]="15">15</option>
+                  </select>
+
+                  <label class="" for="PageSize">Role: </label>
+                  <select class="select2-chosen" name="pageSize"
+                      [(ngModel)]="table.pageSize">
+                      <option [ngValue]="5">5</option>
+                      <option [ngValue]="10">10</option>
+                      <option [ngValue]="15">15</option>
+                  </select>
                 </div>
                 <div class="form-group pull-right">
-                    <label class="" for="PageSize">Page Size</label>
-                    <select class="form-control" name="pageSize" 
-                        [(ngModel)]="table.pageSize">
-                        <option [ngValue]="5">5</option>
-                        <option [ngValue]="10">10</option>
-                        <option [ngValue]="15">15</option>
-                    </select>
+                  <div class="form-group">
+                      <button class="btn btn-default"
+                          (click)="addRecordPlugin()">Add user</button>
+                  </div>
                 </div>
             </div>
     </div>
@@ -31,42 +34,27 @@
 
     <div class="row">
         <div class="col-xs-12">
-            <table class="table table-condensed">
+            <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"
-                                    (change)="changedActiveStatus($event)"
-                                    [checked]="true">
-                                Active
-                            </label>
-                        </div>
-                        </th>
-                        <th>Username</th>
-                        <th>Name</th>
-                        <th>Action</th>
+                        <th><span>Name</span></th>
+                        <th>Property</th>
+                        <th>Method</th>
+                        <th>Scale</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngIf="!table.totalFilteredRows">
+                    <tr *ngIf="!table.totalFilteredRows" class="clickable-row">
                         <td colspan="4" class="text-center">No records found.</td>
                     </tr>
                     <tr *ngFor="let user of table.itemsOnCurrentPage">
                         <td>
-                            <div class="checkbox">
-                                <label>
-                                <input type="checkbox" 
-                                    [(ngModel)]="user.active">
-                            </label>
-                            </div>
+                            sarasa
                         </td>
                         <td>{{user.username}}</td>
                         <td>{{user.name}}</td>
                         <td>
-                            <button class="btn btn-danger"
-                                (click)="removeRecordPlugin(user)">Delete</button>
+                            Delete
                         </td>
                     </tr>
                 </tbody>
@@ -74,15 +62,9 @@
         </div>
     </div>
 
-    <pagination [maxPageIndex]="table.maxPageIndex" 
+    <pagination [maxPageIndex]="table.maxPageIndex"
                 (pageNumberChanged)="table.currentPageIndex = $event">
     </pagination>
 
-    <div class="row">
-        <div class="col-xs-12">            
-            <pre>
-                <h3>Recently deleted users</h3>{{recentlyRemoveUsers | json}}
-            </pre>
-        </div>
-    </div>
+  
 </section>

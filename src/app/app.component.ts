@@ -13,7 +13,8 @@ import { NavigationComponent } from './navigation';
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
-    './app.style.css'
+    './app.style.css',
+    './style.css'
   ],
   directives: [ NavigationComponent ],
   template: `
