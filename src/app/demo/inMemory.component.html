@@ -22,7 +22,7 @@
                   &nbsp;
                   <select class="select2-chosen" name="status"
                       [(ngModel)]="table.searchValue.status">
-                      <option value="*">All</option>
+                      <option value="undefined">All</option>
                       <option value="true">Active</option>
                       <option value="false">Inactive</option>
                   </select>
@@ -30,7 +30,7 @@
                   <label class="">Role: </label>
                   &nbsp;
                   <select  class="select2-chosen" name="role"   [(ngModel)]="table.searchValue.role">
-                    <option value="*">All</option>
+                    <option value="undefined">All</option>
                     <option value="Breeder">Breeder</option>
                     <option value="Technician">Technician</option>
                     <option value="Admin">Admin</option>
@@ -64,12 +64,15 @@
                         <td colspan="4" class="text-center">No records found.</td>
                     </tr>
                     <tr *ngFor="let user of table.itemsOnCurrentPage">
-                        <td>{{user.username}}</td>
+                        <td><a href=""> {{user.username}} </a></td>
                         <td>{{user.firstName}}</td>
                         <td>{{user.lastName}}</td>
                         <td>{{user.email}}</td>
                         <td>{{user.role}}</td>
-                        <td>{{user.status}}</td>
+                        <td>
+                          <a href="" *ngIf="user.status == 'true'">Deactivate</a>
+                          <a href="" *ngIf="user.status == 'false'">Activate</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
