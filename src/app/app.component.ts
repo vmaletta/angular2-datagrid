@@ -2,8 +2,7 @@
  * Angular 2 decorators and services
  */
 import { Component, ViewEncapsulation } from '@angular/core';
-
-import { NavigationComponent } from './navigation';
+import { TableComponent } from './demo';
 
 /*
  * App Component
@@ -16,12 +15,10 @@ import { NavigationComponent } from './navigation';
     './app.style.css',
     './style.css'
   ],
-  directives: [ NavigationComponent ],
+  directives: [ TableComponent ],
   template: `
-    <navigation></navigation>
-
     <div class="container">
-      <router-outlet></router-outlet>
+      <table-demo></table-demo>
     </div>
   `
 })
