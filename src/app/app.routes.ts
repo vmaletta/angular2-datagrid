@@ -1,7 +1,6 @@
 import { WebpackAsyncRoute } from '@angularclass/webpack-toolkit';
 import { RouterConfig } from '@angular/router';
 import { TableComponent } from './demo';
-import { HomeComponent } from './home';
 
 export const routes: RouterConfig = [
     {
@@ -9,6 +8,5 @@ export const routes: RouterConfig = [
         redirectTo: '/home',
         pathMatch: 'full'
     },
-    { path: 'home', component: HomeComponent },
-    { path: 'example/table', component: TableComponent }
+    { path: 'home', component: TableComponent }
 ];

@@ -18,7 +18,7 @@ import { TableComponent } from './demo';
   directives: [ TableComponent ],
   template: `
     <div class="container">
-      <table-demo></table-demo>
+      <router-outlet></router-outlet>
     </div>
   `
 })
