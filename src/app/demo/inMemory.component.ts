@@ -3,6 +3,7 @@ import { NgDataGridModel } from './../datagrid/ng-datagrid.model';
 import { PaginationComponent } from './../datagrid/pagination.component';
 import { User } from './inMemory.model';
 import './../utils/array.extensions';
+import { UserService } from './user.service';
 
 @Component({
     selector: 'in-memory-demo',
@@ -12,19 +13,29 @@ import './../utils/array.extensions';
 export class InMemoryComponent implements OnInit {
     table: NgDataGridModel<User>;
     recentlyRemoveUsers: any[];
+    userService : UserService;
+    users: User[] = [];
+    errorMessage: string = '';
 
     constructor() {
         this.table = new NgDataGridModel<User>([]);
         this.table.pageSize = 10;
-        var json = require('./../datagrid/users.json');
+        /*var json = require('./../datagrid/users.json');
         json.data.forEach(item=> {
           this.table.items.push(new User(item.firstName, item.lastName, item.username,
                                         item.role, item.email, item.status));
 
-        });
+        });*/
+        this.userService
+          .getAll()
+            .subscribe(
+     /* happy path */ p => this.users = p,
+     /* error path */ e => this.errorMessage = e);
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.table.items = this.users;
+     }
 
     addRecordPlugin() {
         //let userId = this.userId++;
